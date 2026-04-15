@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Casette.Api/Casette.Api.csproj" Id="ce9af678-cc66-4cf2-acb2-2f3003e16907" />
+  <Project Path="Casette.AppHost/Casette.AppHost.csproj" />
+  <Project Path="Casette.Cli/Casette.Cli.csproj" Id="bfa3ee59-876d-4529-9666-045e2fa9bdc3" />
+  <Project Path="Casette.ServiceDefaults/Casette.ServiceDefaults.csproj" />
+  <Project Path="Pencil/Pencil.csproj" />
+</Solution>

@@ -1,0 +1,102 @@
+services:
+  compose-dashboard:
+    image: "mcr.microsoft.com/dotnet/nightly/aspire-dashboard:latest"
+    environment:
+      ASPIRE_DASHBOARD_FORWARDEDHEADERS_ENABLED: "true"
+    ports:
+      - "8080:18888"
+    expose:
+      - "18889"
+      - "18890"
+    networks:
+      - "aspire"
+    restart: "always"
+  postgres:
+    image: "docker.io/library/postgres:17.6"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: "scram-sha-256"
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256 --auth-local=scram-sha-256"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    expose:
+      - "5432"
+    volumes:
+      - type: "volume"
+        target: "/var/lib/postgresql/data"
+        source: "casette.apphost-160d4e8952-postgres-data"
+    networks:
+      - "aspire"
+  minio:
+    image: "docker.io/minio/minio:RELEASE.2025-09-07T16-13-09Z"
+    command:
+      - "server"
+      - "/data"
+      - "--console-address"
+      - ":9001"
+    environment:
+      MINIO_ROOT_USER: "${USER}"
+      MINIO_ROOT_PASSWORD: "${MINIO_ROOTPASSWORD}"
+    expose:
+      - "9000"
+      - "9001"
+    volumes:
+      - type: "volume"
+        target: "/data"
+        source: "casette.apphost-160d4e8952-minio-data"
+    networks:
+      - "aspire"
+  backend:
+    image: "${BACKEND_IMAGE}"
+    environment:
+      ConnectionStrings__minio: "Endpoint=http://minio:9000;AccessKey=${USER};SecretKey=${MINIO_ROOTPASSWORD}"
+      MINIO_HOST: "minio"
+      MINIO_PORT: "9000"
+      MINIO_ACCESSKEY: "${USER}"
+      MINIO_SECRETKEY: "${MINIO_ROOTPASSWORD}"
+      MINIO_URI: "http://minio:9000"
+      ConnectionStrings__casette: "Host=postgres;Port=5432;Username=postgres;Password=${POSTGRES_PASSWORD};Database=casette"
+      CASETTE_HOST: "postgres"
+      CASETTE_PORT: "5432"
+      CASETTE_USERNAME: "postgres"
+      CASETTE_PASSWORD: "${POSTGRES_PASSWORD}"
+      CASETTE_URI: "postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/casette"
+      CASETTE_JDBCCONNECTIONSTRING: "jdbc:postgresql://postgres:5432/casette"
+      CASETTE_DATABASENAME: "casette"
+      Jwt__Secret: "${JWTSECRET}"
+      Tmdb__ApiKey: "${TMDBAPI}"
+    expose:
+      - "443"
+    depends_on:
+      minio:
+        condition: "service_started"
+    networks:
+      - "aspire"
+  nginx:
+    image: "${NGINX_IMAGE}"
+    environment:
+      ConnectionStrings__minio: "Endpoint=http://minio:9000;AccessKey=${USER};SecretKey=${MINIO_ROOTPASSWORD}"
+      MINIO_HOST: "minio"
+      MINIO_PORT: "9000"
+      MINIO_ACCESSKEY: "${USER}"
+      MINIO_SECRETKEY: "${MINIO_ROOTPASSWORD}"
+      MINIO_URI: "http://minio:9000"
+    ports:
+      - "80:80"
+      - "443:443"
+    expose:
+      - "80"
+    depends_on:
+      minio:
+        condition: "service_started"
+      backend:
+        condition: "service_started"
+    networks:
+      - "aspire"
+networks:
+  aspire:
+    driver: "bridge"
+volumes:
+  casette.apphost-160d4e8952-postgres-data:
+    driver: "local"
+  casette.apphost-160d4e8952-minio-data:
+    driver: "local"

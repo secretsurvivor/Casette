@@ -1,0 +1,28 @@
+syntax = "proto3";
+option csharp_namespace = "Casette.gRPC";
+
+package Casette.gRPC;
+
+service VideoService {
+	rpc UploadVideo (stream UploadFileRequest) returns (UploadFileResponse);
+}
+
+message UploadFileRequest {
+  oneof data {
+    FileMetadata metadata = 1;  // sent first, once
+    bytes chunk = 2;             // then streamed
+  }
+}
+
+message FileMetadata {
+  string file_name = 1;
+  string content_type = 2;
+  double duration = 3;
+  int64 total_size = 4;
+}
+
+message UploadFileResponse {
+  string object_key = 1;
+  int64 bytes_received = 2;
+  bool success = 3;
+}

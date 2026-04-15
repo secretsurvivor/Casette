@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <VerifyReferenceAotCompatibility>true</VerifyReferenceAotCompatibility>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ForgeSharp.Results" Version="2.2.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.76.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.80.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
+    <PackageReference Include="protobuf-net" Version="3.2.56" />
+    <PackageReference Include="protobuf-net.BuildTools" Version="3.2.52">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Spectre.Console" Version="0.55.0" />
+    <PackageReference Include="System.CommandLine" Version="2.0.5" />
+    <PackageReference Include="TagLibSharp" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Proto\" />
+    <Protobuf Include="..\Casette.Api\Proto\User.proto" GrpcServices="Client" />
+    <Protobuf Include="..\Casette.Api\Proto\Video.proto" GrpcServices="Client" />
+    <None Include="..\Casette.Api\Proto\User.proto" Link="Proto\User.proto" />
+    <None Include="..\Casette.Api\Proto\Video.proto" Link="Proto\Video.proto" />
+  </ItemGroup>
+
+</Project>

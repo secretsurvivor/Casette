@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
+
+.card {
+  cursor: pointer;
+
+  &:hover .card-poster {
+    .card-overlay { opacity: 1; }
+    img { transform: scale(1.04); }
+    border-color: rgba(232, 201, 122, 0.35);
+  }
+}
+
+.card-poster {
+  aspect-ratio: 2/3;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+  border: 0.5px solid rgba(255,255,255,0.07);
+  background: #1a1a22;
+  transition: border-color 0.2s;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+}
+
+.card-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #e8c97a;
+  color: #0a0a0c;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 1px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  z-index: 2;
+}
+
+.card-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  z-index: 2;
+}
+
+.card-progress-fill {
+  height: 100%;
+  background: #e8c97a;
+  transition: width 0.3s;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 3;
+}
+
+.play-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(232,201,122,0.9);
+  border: none;
+  color: #0a0a0c;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3px;
+}
+
+.card-title {
+  font-size: 12px;
+  font-weight: 400;
+  color: #f0eee8;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.card-sub {
+  font-size: 11px;
+  color: #6b6a72;
+  margin-top: 3px;
+  letter-spacing: 0.3px;
+  font-family: 'DM Sans', sans-serif;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+option csharp_namespace = "Casette.gRPC";
+
+package Casette.gRPC;
+
+service LoginService {
+	rpc Login(LoginRequest) returns (LoginResponse);
+}
+
+message LoginRequest { string accessKey = 1; }
+message LoginResponse {
+	bool success = 1;
+	string token = 2;
+}

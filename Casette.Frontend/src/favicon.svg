@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0a0a0c"/>
+  <!-- Film strip left -->
+  <rect x="3" y="5" width="3" height="22" rx="1" fill="#1a1a22"/>
+  <rect x="3.5" y="6.5" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <rect x="3.5" y="10" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <rect x="3.5" y="13.5" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <rect x="3.5" y="17" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <rect x="3.5" y="20.5" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <rect x="3.5" y="24" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <!-- Film strip right -->
+  <rect x="26" y="5" width="3" height="22" rx="1" fill="#1a1a22"/>
+  <rect x="26.5" y="6.5" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <rect x="26.5" y="10" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <rect x="26.5" y="13.5" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <rect x="26.5" y="17" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <rect x="26.5" y="20.5" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <rect x="26.5" y="24" width="2" height="2" rx=".5" fill="#0a0a0c"/>
+  <!-- Play triangle -->
+  <polygon points="12,9 12,23 23,16" fill="#e8c97a"/>
+</svg>

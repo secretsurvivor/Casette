@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
+
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0c;
+  padding: 1rem;
+}
+
+.login-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 60%, rgba(232,201,122,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 75% 30%, rgba(196,119,58,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: #111116;
+  border: 0.5px solid rgba(255,255,255,0.07);
+  border-radius: 4px;
+  padding: 48px 40px;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 480px) {
+    padding: 40px 28px;
+  }
+}
+
+.login-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  letter-spacing: 4px;
+  color: #e8c97a;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.login-tagline {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6b6a72;
+  margin-bottom: 40px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.field {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #6b6a72;
+    margin-bottom: 8px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  input {
+    width: 100%;
+    background: #0a0a0c;
+    border: 0.5px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    padding: 13px 14px;
+    color: #f0eee8;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:focus { border-color: #e8c97a; }
+    &.error { border-color: #c45a5a; }
+  }
+}
+
+.field-error {
+  display: block;
+  font-size: 12px;
+  color: #c45a5a;
+  margin-top: 6px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  cursor: pointer;
+
+  input[type="checkbox"] { display: none; }
+
+  .remember-box {
+    width: 16px;
+    height: 16px;
+    border: 0.5px solid rgba(255,255,255,0.2);
+    border-radius: 2px;
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  input:checked + .remember-box {
+    background: #e8c97a;
+    border-color: #e8c97a;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 5px;
+      height: 9px;
+      border: 2px solid #0a0a0c;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+  }
+
+  .remember-label {
+    font-size: 13px;
+    color: #6b6a72;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+  }
+}
+
+.btn-login {
+  width: 100%;
+  background: #e8c97a;
+  color: #0a0a0c;
+  border: none;
+  border-radius: 2px;
+  padding: 14px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover:not(:disabled) { opacity: 0.88; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.login-footer {
+  margin-top: 24px;
+  font-size: 11px;
+  color: #6b6a72;
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-family: 'DM Sans', sans-serif;
+}

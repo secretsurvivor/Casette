@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="24" fill="#0a0a0c"/>
+  <!-- Film strip left -->
+  <rect x="28" y="40" width="12" height="112" rx="2" fill="#1a1a22"/>
+  <rect x="30" y="46" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="30" y="60" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="30" y="74" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="30" y="88" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="30" y="102" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="30" y="116" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="30" y="130" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <!-- Film strip right -->
+  <rect x="152" y="40" width="12" height="112" rx="2" fill="#1a1a22"/>
+  <rect x="154" y="46" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="154" y="60" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="154" y="74" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="154" y="88" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="154" y="102" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="154" y="116" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <rect x="154" y="130" width="8" height="8" rx="1" fill="#0a0a0c"/>
+  <!-- Play triangle -->
+  <polygon points="78,68 78,124 128,96" fill="#e8c97a"/>
+  <!-- Brand text -->
+  <text x="96" y="170" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="18" letter-spacing="4" fill="#e8c97a">CASETTE</text>
+</svg>

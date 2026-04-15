@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#16161c"/>
+  <rect x="1" y="1" width="1278" height="718" fill="none" stroke="#2a2a32" stroke-width="1" rx="4"/>
+  <!-- Landscape/image icon -->
+  <g transform="translate(640, 330)" fill="none" stroke="#3a3a44" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-32" y="-24" width="64" height="48" rx="4"/>
+    <circle cx="-14" cy="-8" r="6"/>
+    <polyline points="-32,24 -8,-4 8,12 16,4 32,24"/>
+  </g>
+  <text x="640" y="390" text-anchor="middle" fill="#3a3a44" font-family="sans-serif" font-size="16" font-weight="400">No Backdrop</text>
+</svg>
